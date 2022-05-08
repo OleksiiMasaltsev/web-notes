@@ -11,7 +11,11 @@ import java.util.Optional;
 @Service
 public class NoteServiceImpl implements NoteService {
 
-    private NoteRepository repository;
+    private final NoteRepository repository;
+
+    public NoteServiceImpl(NoteRepository repository) {
+        this.repository = repository;
+    }
 
     @Override
     public List<Note> showAll() {
