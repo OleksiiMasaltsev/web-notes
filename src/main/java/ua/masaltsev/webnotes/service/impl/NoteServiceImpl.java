@@ -1,5 +1,6 @@
 package ua.masaltsev.webnotes.service.impl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ua.masaltsev.webnotes.dao.NoteRepository;
 import ua.masaltsev.webnotes.entity.Note;
@@ -13,7 +14,8 @@ public class NoteServiceImpl implements NoteService {
 
     private final NoteRepository repository;
 
-    public NoteServiceImpl(NoteRepository repository) {
+    @Autowired
+    NoteServiceImpl(NoteRepository repository) {
         this.repository = repository;
     }
 
