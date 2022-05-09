@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>WebNotes Homepage</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>My notes</title>
 </head>
+
 <body>
-test homepage
+<div class="container">
+    <h3>My notes</h3>
+    <hr>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th>Title</th>
+            <th>Contents</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="note : ${notes}">
+            <td th:text="${note.title}"/>
+            <td th:text="${note.contents}"/>
+        </tr>
+        </tbody>
+    </table>
+</div>
 </body>
 </html>
+
+
+
