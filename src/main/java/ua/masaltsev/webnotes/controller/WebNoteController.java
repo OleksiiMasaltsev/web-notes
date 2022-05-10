@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import ua.masaltsev.webnotes.entity.Note;
 import ua.masaltsev.webnotes.service.NoteService;
 
@@ -29,7 +31,11 @@ public class WebNoteController {
         return "note-form";
     }
 
-//    @PostMapping("/saveNote")
+    @PostMapping("/saveNote")
+    public String saveNote(@ModelAttribute("note") Note note) {
+        service.save(note);
+        return "redirect:/showAllNotes";
+    }
 
 
 }
