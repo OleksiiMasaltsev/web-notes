@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>note form</title>
+</head>
+<body>
+<div class="container">
+    <hr>
+    <p class="h4 mb-4">Create or edit</p>
+
+    <form action="#" th:action="@{/saveNote}"
+          th:object="${note}" method="POST">
+
+        <input type="text" th:field="*{title}"
+               class="form-control mb-4 col-4" placeholder="Title">
+
+        <input type="text" th:field="*{contents}"
+               class="form-control mb-4 col-4" placeholder="Contents">
+
+        <button type="submit" class="btn btn-info col-2">Save</button>
+
+    </form>
+
+    <hr>
+    <a th:href="@{/notes}">Back to Note List</a>
+
+</div>
+</body>
+</html>
