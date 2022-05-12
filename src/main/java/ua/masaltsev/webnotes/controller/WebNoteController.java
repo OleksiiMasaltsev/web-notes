@@ -6,8 +6,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import ua.masaltsev.webnotes.entity.Note;
 import ua.masaltsev.webnotes.service.NoteService;
+
+import java.util.Optional;
 
 @Controller
 public class WebNoteController {
@@ -28,6 +31,13 @@ public class WebNoteController {
     @GetMapping("/showNoteForm")
     public String showNoteForm(Model model) {
         model.addAttribute("note", new Note());
+        return "note-form";
+    }
+
+    @GetMapping("/showNoteUpdate")
+    public String showNoteUpdate(@RequestParam("noteId") int id, Model model) {
+        Optional<Note> note = service.showById(id);
+        model.addAttribute(note.orElse(new Note()));
         return "note-form";
     }
 
