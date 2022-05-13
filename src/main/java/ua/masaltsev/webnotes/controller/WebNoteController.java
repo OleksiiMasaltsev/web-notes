@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ua.masaltsev.webnotes.entity.Note;
 import ua.masaltsev.webnotes.service.NoteService;
 
-import java.util.Optional;
-
 @Controller
 public class WebNoteController {
 
@@ -36,13 +34,15 @@ public class WebNoteController {
 
     @GetMapping("/showNoteUpdate")
     public String showNoteUpdate(@RequestParam("noteId") int id, Model model) {
-        Optional<Note> note = service.showById(id);
-        model.addAttribute(note.orElse(new Note()));
+        System.out.println("Note id for update: " + id);
+        Note note = service.findById(id);
+        model.addAttribute("note", note);
         return "note-form";
     }
 
     @PostMapping("/saveNote")
     public String saveNote(@ModelAttribute("note") Note note) {
+        System.out.println("Note id after update: " + note.getId());
         service.save(note);
         return "redirect:/showAllNotes";
     }
