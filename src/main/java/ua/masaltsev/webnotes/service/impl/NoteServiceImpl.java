@@ -25,8 +25,15 @@ public class NoteServiceImpl implements NoteService {
     }
 
     @Override
-    public Optional<Note> showById(Integer id) {
-        return repository.findById(id);
+    public Note findById(Integer id) {
+        Note resultNote;
+        Optional<Note> optionalNote = repository.findById(id);
+        if (optionalNote.isPresent()) {
+            resultNote = optionalNote.get();
+        } else {
+            throw new RuntimeException("Note id is not found: " + id);
+        }
+        return resultNote;
     }
 
     @Override

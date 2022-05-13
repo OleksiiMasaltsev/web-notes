@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -15,8 +15,10 @@
     <hr>
     <p class="h4 mb-4">Create or edit</p>
 
-    <form action="#" th:action="@{/saveNote}"
-          th:object="${note}" method="POST">
+    <form action="#"    th:action="@{/saveNote}"
+                        th:object="${note}" method="POST">
+
+        <input type="hidden" th:field="*{id}"/>
 
         <input type="text" th:field="*{title}"
                class="form-control mb-4 col-4" placeholder="Title">

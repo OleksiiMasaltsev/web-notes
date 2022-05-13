@@ -17,7 +17,7 @@
     <h3>My notes</h3>
     <hr>
 
-    <a  href="/showNoteForm"
+    <a  th:href="@{/showNoteForm}"
         class="btn btn-primary btn-sm mb-3">
         New note
     </a>
@@ -27,12 +27,20 @@
         <tr>
             <th>Title</th>
             <th>Contents</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="note : ${notes}">
-            <td th:text="${note.title}"/>
-            <td th:text="${note.contents}"/>
+        <tr th:each="tempNote : ${notes}">
+            <td th:text="${tempNote.title}"/>
+            <td th:text="${tempNote.contents}"/>
+            <!--Update button-->
+            <td>
+                <a  th:href="@{/showNoteUpdate(noteId=${tempNote.id})}"
+                    class="btn btn-info btn-sm">
+                    Update
+                </a>
+            </td>
         </tr>
         </tbody>
     </table>
