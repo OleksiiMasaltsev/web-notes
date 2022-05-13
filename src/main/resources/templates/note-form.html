@@ -15,8 +15,8 @@
     <hr>
     <p class="h4 mb-4">Create or edit</p>
 
-    <form action="#"    th:action="@{/saveNote}"
-                        th:object="${note}" method="POST">
+    <form action="#" th:action="@{/saveNote}"
+          th:object="${note}" method="POST">
 
         <input type="hidden" th:field="*{id}"/>
 
@@ -27,7 +27,6 @@
                class="form-control mb-4 col-4" placeholder="Contents">
 
         <button type="submit" class="btn btn-info col-2">Save</button>
-
     </form>
 
     <hr>
