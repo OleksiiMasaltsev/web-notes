@@ -34,15 +34,19 @@ public class WebNoteController {
 
     @GetMapping("/showNoteUpdate")
     public String showNoteUpdate(@RequestParam("noteId") int id, Model model) {
-        System.out.println("Note id for update: " + id);
         Note note = service.findById(id);
         model.addAttribute("note", note);
         return "note-form";
     }
 
+    @GetMapping("/delete")
+    public String deleteNote(@RequestParam("noteId") int id) {
+        service.deleteById(id);
+        return "redirect:/showAllNotes";
+    }
+
     @PostMapping("/saveNote")
     public String saveNote(@ModelAttribute("note") Note note) {
-        System.out.println("Note id after update: " + note.getId());
         service.save(note);
         return "redirect:/showAllNotes";
     }
