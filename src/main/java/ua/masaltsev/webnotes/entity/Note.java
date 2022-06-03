@@ -1,7 +1,12 @@
 package ua.masaltsev.webnotes.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 
+@Getter
+@Setter
 @Entity
 @Table(name = "notes")
 public class Note {
@@ -17,30 +22,6 @@ public class Note {
 
     public Note(String title, String contents) {
         this.title = title;
-        this.contents = contents;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getContents() {
-        return contents;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setContents(String contents) {
         this.contents = contents;
     }
 
