@@ -17,8 +17,8 @@
     <h3>My notes</h3>
     <hr>
 
-    <a  th:href="@{/showNoteForm}"
-        class="btn btn-primary btn-sm mb-3">
+    <a th:href="@{/showNoteForm}"
+       class="btn btn-primary btn-sm mb-3">
         New note
     </a>
 
@@ -36,21 +36,29 @@
             <td th:text="${tempNote.contents}"/>
             <!--Update button-->
             <td>
-                <a  th:href="@{/showNoteUpdate(noteId=${tempNote.id})}"
-                    class="btn btn-info btn-sm">
+                <a th:href="@{/showNoteUpdate(noteId=${tempNote.id})}"
+                   class="btn btn-info btn-sm">
                     Update
                 </a>
 
-                <a  th:href="@{/delete(noteId=${tempNote.id})}"
-                    class="btn btn-danger btn-sm"
-                    onclick="if (!(confirm('Are you sure?'))) return false">
+                <a th:href="@{/delete(noteId=${tempNote.id})}"
+                   class="btn btn-danger btn-sm"
+                   onclick="if (!(confirm('Are you sure?'))) return false">
                     Delete
                 </a>
             </td>
         </tr>
         </tbody>
     </table>
+
+    <div id="openweathermap-widget-15"></div>
+    <script>
+    window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];  window.myWidgetParam.push({id: 15,cityid: '703448',appid: '9ecc59c3524a86328e7ecd2291584cfd',units: 'metric',containerid: 'openweathermap-widget-15',  });  (function() {var script = document.createElement('script');script.async = true;script.charset = "utf-8";script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(script, s);  })();
+
+    </script>
+
 </div>
+
 </body>
 </html>
 
