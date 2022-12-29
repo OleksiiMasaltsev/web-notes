@@ -7,7 +7,7 @@
 - Edit already saved notes
 - Delete notes
 
-![](C:\Java_Projects\MA\others\web-notes\web_notes_screen_mini.jpg)
+![](web_notes_screen_mini.jpg)
 
 #### Technologies used in the project:
 - SpringBoot 2.6.7
