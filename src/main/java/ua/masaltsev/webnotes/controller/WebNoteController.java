@@ -12,7 +12,6 @@ import ua.masaltsev.webnotes.service.NoteService;
 
 @Controller
 public class WebNoteController {
-
     private final NoteService service;
 
     @Autowired
