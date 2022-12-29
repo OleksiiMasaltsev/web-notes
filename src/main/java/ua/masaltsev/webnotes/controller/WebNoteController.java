@@ -49,6 +49,4 @@ public class WebNoteController {
         service.save(note);
         return "redirect:/showAllNotes";
     }
-
-
 }
